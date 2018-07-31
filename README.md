@@ -1,5 +1,5 @@
 ## Android  第三方库封装
-### Author 刘启明(liuqiminggood@gmail.com) [blog(http://timmy6.github.io/)](http://timmy6.github.io/)
+### Author：刘启明(liuqiminggood@gmail.com) [blog(http://timmy6.github.io/)](http://timmy6.github.io/)
 
 ### 一、微信支付宝支付
 ###### 1.导入开发资源
