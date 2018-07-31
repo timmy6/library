@@ -3,7 +3,7 @@
 
 ### 一、微信支付宝支付
 ###### 1.导入开发资源
-1.在Module级的build.gradle文件中，添加如下语句
+1.在**Module**级的`build.gradle`文件中，添加如下语句
 ```java
 implementation 'com.venus.pay:venus_pay:1.0.1'
 compile 'com.venus.utils:venus_utils:1.0.1'
@@ -21,13 +21,13 @@ compile 'com.venus.utils:venus_utils:1.0.1'
 ###### 3.微信配置
 因为唤起微信支付时，会校验app的应用签名,所以微信支付需要一些额外配置，步骤如下：
 - 登录微信开放平台获取到APPID
-- 在应用包名路径下创建一个包名wxapi包路径(例如，AndroidManifest 文件中，package="com.qiming.demo"，则WXPayEntryActivity的路径为com.qiming.demo.wxapi.WXPayCallbackActivity)，且创建一个name为WXPayEntryActivity的文件，并继承 WXPayCallbackActivity，里面什么都不需要写.
+- 在应用包名路径下创建一个包名wxapi包路径(例如，AndroidManifest 文件中，package="com.qiming.demo"，则WXPayEntryActivity的路径为:`com.qiming.demo.wxapi.WXPayCallbackActivity`)，且创建一个name为`WXPayEntryActivity`的文件，并继承 `WXPayCallbackActivity`，里面什么都不需要写.
 ```java
 public class WXPayEntryActivity extends WXPayCallbackActivity {
 
 }
 ```
-- 在AndroidManifest.xml文件中声明 WXPayEntryActivity
+- 在`AndroidManifest.xml`文件中声明 `WXPayEntryActivity`
 ```java
 <activity
             android:name=".wxapi.WXPayEntryActivity"
