@@ -4,13 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.lingshou.jupiter.pay.R;
-import com.lingshou.jupiter.toolbox.ToastUtil;
-import com.lingshou.jupiter.toolbox.log.JupiterLog;
+import com.qiming.venus.R;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
-import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
 /**
@@ -49,14 +46,8 @@ public class WXPayCallbackActivity extends Activity implements IWXAPIEventHandle
     @Override
     public void onResp(BaseResp baseResp) {
         if (baseResp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
-            if (baseResp.errStr != null) {
-                JupiterLog.e(TAG, "pay Error.errStr = " + baseResp.errStr);
-            }
             WXPay.getInstance().onResp(baseResp.errCode);
             finish();
-        } else if (baseResp.getType() == ConstantsAPI.COMMAND_SENDAUTH) {
-            String code = ((SendAuth.Resp) baseResp).code;
-            WXPay.getInstance().onLoginResult(code);
         }
     }
 }

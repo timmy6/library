@@ -30,9 +30,9 @@ public class PayHelper {
     /**
      * 发起微信支付
      *
-     * @param context
-     * @param payParams
-     * @param callBack
+     * @param context 上下文
+     * @param payParams 支付参数对象
+     * @param callBack  回调
      */
     public void doWXPay(Context context, WXPayParam payParams, PayResultCallBack callBack) {
         WXPay.getInstance().init(context).doPay(payParams, callBack);
@@ -41,9 +41,9 @@ public class PayHelper {
     /**
      * 发起支付宝支付
      *
-     * @param context
-     * @param payParams partner="xxxx"&seller_id="xxxxx"&out_trade_no="xxxxx"&subject="商品名"&total_fee="999.00"&service="xxxxxx"&payment_type="1"&_input_charset="utf-8"&it_b_pay="xxxx"&notify_url="xxxxxxx"&sign_type="RSA"&sign="xxxxxx"
-     * @param callBack
+     * @param context 上下文
+     * @param payParams 支付url
+     * @param callBack  回调
      */
     public void doAliPay(Activity context, String payParams, PayResultCallBack callBack) {
         Alipay.getInstance(context).doPay(payParams, callBack);

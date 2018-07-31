@@ -44,8 +44,8 @@ public class WXPay {
     /**
      * 初始化
      *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return wxPay 支付对象
      */
     public static WXPay init(Context context) {
         if (wxPay == null) {
@@ -91,7 +91,7 @@ public class WXPay {
     /**
      * 支付回调响应
      *
-     * @param errorCode
+     * @param errorCode 错误码
      */
     public void onResp(int errorCode) {
         if (callBack == null) {
@@ -114,7 +114,7 @@ public class WXPay {
     /**
      * 检测是否支持微信支付
      *
-     * @return
+     * @return 是否支持微信支付
      */
     private boolean check() {
         return wxApi.isWXAppInstalled() && wxApi.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;

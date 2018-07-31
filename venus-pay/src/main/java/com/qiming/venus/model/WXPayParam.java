@@ -50,7 +50,7 @@ public class WXPayParam implements Serializable {
     /**
      * 返回PayReq对象，作为WxApi发起支付的参数
      *
-     * @return
+     * @return PayReq
      */
     public PayReq convertToPayReq() {
         PayReq req = new PayReq();
