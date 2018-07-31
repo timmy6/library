@@ -31,11 +31,20 @@ dependencies {
     implementation project(path: ':venus-utils')
 }
 
-//打包上传
+//********************打包上传********************
 
 apply plugin: 'com.novoda.bintray-release'
 
+Properties properties = new Properties()
+InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
+properties.load( inputStream )
+
+String localBintrayUser = properties.getProperty("bintray.user")
+String localBintrayApikey = properties.getProperty("bintray.apikey")
+
 publish {
+    bintrayUser = localBintrayUser   //bintray.com用户名
+    bintrayKey = localBintrayApikey  //bintray.com apikey
     userOrg = 'codinggod' //bintray账户下某个组织id
     groupId = 'com.venus.pay' //maven仓库下库的包名，一般为模块包名
     artifactId = 'venus_pay' //项目名称
