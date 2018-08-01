@@ -65,23 +65,23 @@ artifacts {
     archives sourcesJar
 }
 
-apply plugin: 'com.novoda.bintray-release'
-
-Properties properties = new Properties()
-InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
-properties.load( inputStream )
-
-String localBintrayUser = properties.getProperty("bintray.user")
-String localBintrayApikey = properties.getProperty("bintray.apikey")
-
-publish {
-    bintrayUser = localBintrayUser   //bintray.com用户名
-    bintrayKey = localBintrayApikey  //bintray.com apikey
-    dryRun = false
-    userOrg = 'codinggod' //bintray账户下某个组织id
-    groupId = 'com.venus.utils' //maven仓库下库的包名，一般为模块包名
-    artifactId = 'venus_utils' //项目名称
-    publishVersion = '1.0.1' //版本号
-    desc = 'custom chart for android' //项目介绍，可以不写
-    website = '' //项目主页，可以不写
-}
+//apply plugin: 'com.novoda.bintray-release'
+//
+//Properties properties = new Properties()
+//InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
+//properties.load( inputStream )
+//
+//String localBintrayUser = properties.getProperty("bintray.user")
+//String localBintrayApikey = properties.getProperty("bintray.apikey")
+//
+//publish {
+//    bintrayUser = localBintrayUser   //bintray.com用户名
+//    bintrayKey = localBintrayApikey  //bintray.com apikey
+//    dryRun = false
+//    userOrg = 'codinggod' //bintray账户下某个组织id
+//    groupId = 'com.venus.utils' //maven仓库下库的包名，一般为模块包名
+//    artifactId = 'venus_utils' //项目名称
+//    publishVersion = '1.0.1' //版本号
+//    desc = 'custom chart for android' //项目介绍，可以不写
+//    website = '' //项目主页，可以不写
+//}
