@@ -28,27 +28,17 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation files('libs/alipaySdk-20170623-proguard.jar')
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.1.4'
-    implementation project(path: ':venus-utils')
 }
 
 //********************打包上传********************
+//执行：./gradlew clean build bintrayUpload -PbintrayUser=liuqiming -PbintrayKey=729d33369757ef7d9e07bce0ea24937453e74cbf -PdryRun=false
 
 apply plugin: 'com.novoda.bintray-release'
-
-Properties properties = new Properties()
-InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
-properties.load( inputStream )
-
-String localBintrayUser = properties.getProperty("bintray.user")
-String localBintrayApikey = properties.getProperty("bintray.apikey")
-
 publish {
-    bintrayUser = localBintrayUser   //bintray.com用户名
-    bintrayKey = localBintrayApikey  //bintray.com apikey
     userOrg = 'codinggod' //bintray账户下某个组织id
     groupId = 'com.venus.pay' //maven仓库下库的包名，一般为模块包名
     artifactId = 'venus_pay' //项目名称
-    publishVersion = '1.0.1' //版本号
+    publishVersion = '1.0.2' //版本号
     desc = 'custom chart for android' //项目介绍，可以不写
     website = '' //项目主页，可以不写
 }

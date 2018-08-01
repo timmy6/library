@@ -1,10 +1,11 @@
 package com.qiming.venus.wxpay;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.qiming.venus.AppUtil;
 import com.qiming.venus.callback.PayResultCallBack;
 import com.qiming.venus.model.WXPayParam;
 import com.tencent.mm.opensdk.constants.Build;
@@ -32,7 +33,7 @@ public class WXPay {
 
     private WXPay(Context context) {
         wxApi = WXAPIFactory.createWXAPI(context, null);
-        appId = AppUtil.getValueFromManifestFile(context, "wx_app_id", "");
+        appId = getValueFromManifestFile(context, "wx_app_id", "");
         if (TextUtils.isEmpty(appId)) {
             Log.e(TAG, "请在Manifests文件中，配置wx_app_id");
         } else {
@@ -40,6 +41,28 @@ public class WXPay {
         }
     }
 
+    /**
+     * 获取在Manifests文件中的value
+     *
+     * @param context  上下文
+     * @param key      主键
+     * @param defValue 默认值
+     * @return
+     */
+    public String getValueFromManifestFile(Context context, String key, String defValue) {
+        try {
+            ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(),
+                    PackageManager.GET_META_DATA);
+            if (TextUtils.isEmpty(appInfo.metaData.getString(key))) {
+                return defValue;
+            } else {
+                return appInfo.metaData.getString(key);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return defValue;
+    }
 
     /**
      * 初始化
