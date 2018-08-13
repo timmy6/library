@@ -1,9 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qiming.venus">
 
-    <application
-        android:allowBackup="true"
-        android:supportsRtl="true">
+    <application>
 
         <!-- 支付宝支付 -->
         <activity
