@@ -5,7 +5,7 @@
 ###### 1.导入开发资源
 1.在**Module**级的`build.gradle`文件中，添加如下语句
 ```java
-implementation 'com.venus.pay:venus_pay:1.0.3'
+implementation 'com.venus.pay:venus_pay:1.0.4’
 ```
 
 ###### 2.权限配置
